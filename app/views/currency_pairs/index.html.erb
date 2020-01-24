@@ -2,7 +2,7 @@
 
 <h1>Currency Pairs</h1>
 
-<table>
+<table class="table table-bordered ">
   <thead>
     <tr>
       <th>Amount</th>
@@ -18,9 +18,10 @@
         <td><%= currency_pair.amount %></td>
         <td><%= currency_pair.target %></td>
         <td><%= currency_pair.duration %></td>
-        <td><%= link_to 'Show', currency_pair %></td>
-        <td><%= link_to 'Edit', edit_currency_pair_path(currency_pair) %></td>
-        <td><%= link_to 'Destroy', currency_pair, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', currency_pair, class: 'btn btn-outline-primary btn-sm' %></td>
+        <td><%= link_to 'Edit', edit_currency_pair_path(currency_pair), class: 'btn btn-outline-warning btn-sm' %></td>
+        <td><%= link_to 'Destroy', currency_pair, class: 'btn btn-outline-danger btn-sm',
+                                                  method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Currency Pair', new_currency_pair_path %>
+<%= link_to 'New Currency Pair', new_currency_pair_path, class: 'btn btn-outline-success btn-sm' %>
