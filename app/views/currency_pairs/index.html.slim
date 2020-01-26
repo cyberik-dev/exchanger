@@ -1,5 +1,5 @@
 .row.pb-2
-  .col
+  .w-200.pl-3
     h3
       | Currency Pairs
   .col-9
@@ -24,7 +24,7 @@ table.table
         td
           = currency_pair.duration
         td
-          = link_to 'Show', currency_pair, class: 'btn btn-outline-primary btn-sm mr-2'
+          = link_to 'Show rates', currency_pair, class: 'btn btn-outline-primary btn-sm mr-2'
           = link_to 'Edit', edit_currency_pair_path(currency_pair), class: 'btn btn-outline-dark btn-sm mr-2'
           = link_to 'Destroy', currency_pair, class: 'btn btn-outline-danger btn-sm mr-2',
                                               method: :delete, data: { confirm: 'Are you sure?' }

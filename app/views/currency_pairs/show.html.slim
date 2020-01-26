@@ -10,6 +10,25 @@ p
   strong
     | Duration: 
   = @currency_pair.duration
+
+table.table
+  thead
+    tr
+      th
+        | Year
+      th
+        | Week
+      th
+        | Date
+  tbody
+    - @currency_pair.fetch_weeks.each do |week|
+      tr
+        td
+          = week.year
+        td
+          = week.cweek
+        td
+          = week
   
 = link_to 'Edit', edit_currency_pair_path(@currency_pair)
 |  | 
