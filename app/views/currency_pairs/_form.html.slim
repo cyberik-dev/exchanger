@@ -2,11 +2,12 @@
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
   .form-group
-    = f.input :amount
+    = f.input :amount, input_html: { min: '1' }
   .form-group
-    = f.input :target
+    = f.input :target, collection: CurrencyPair.targets.map { |key, value| [key.upcase, key] },
+              include_blank: false
   .form-group
-    = f.input :duration
+    = f.input :duration, input_html: { min: '1' }
   .form-actions
     = f.button :submit, class: 'btn btn-outline-primary'
 br

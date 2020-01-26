@@ -1,4 +1,4 @@
-.row
+.row.pb-2
   .col
     h3
       | Currency Pairs
@@ -20,7 +20,7 @@ table.table
         td
           = currency_pair.amount
         td
-          = currency_pair.target
+          = currency_pair.target.upcase
         td
           = currency_pair.duration
         td

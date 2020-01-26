@@ -2,7 +2,7 @@ class CurrencyPairsController < ApplicationController
   before_action :set_currency_pair, only: [:show, :edit, :update, :destroy]
 
   def index
-    @currency_pairs = CurrencyPair.all
+    @currency_pairs = CurrencyPair.all.order(:id)
   end
 
   def show
