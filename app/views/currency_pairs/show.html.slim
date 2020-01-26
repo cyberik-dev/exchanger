@@ -1,0 +1,16 @@
+p
+  strong
+    | Amount: 
+  = @currency_pair.amount
+p
+  strong
+    | Target: 
+  = @currency_pair.target
+p
+  strong
+    | Duration: 
+  = @currency_pair.duration
+  
+= link_to 'Edit', edit_currency_pair_path(@currency_pair)
+|  | 
+= link_to 'Back', currency_pairs_path
