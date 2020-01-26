@@ -1,9 +1,9 @@
 .row
   .col
-    h3.py-3
+    h3
       | Currency Pairs
   .col-9
-    = link_to 'New Currency Pair', new_currency_pair_path, class: 'btn btn-outline-success btn-sm my-3'
+    = link_to 'New Currency Pair', new_currency_pair_path, class: 'btn btn-outline-success btn-sm'
 table.table
   thead
     tr
@@ -25,6 +25,6 @@ table.table
           = currency_pair.duration
         td
           = link_to 'Show', currency_pair, class: 'btn btn-outline-primary btn-sm mr-2'
-          = link_to 'Edit', edit_currency_pair_path(currency_pair), class: 'btn btn-outline-warning btn-sm mr-2'
+          = link_to 'Edit', edit_currency_pair_path(currency_pair), class: 'btn btn-outline-dark btn-sm mr-2'
           = link_to 'Destroy', currency_pair, class: 'btn btn-outline-danger btn-sm mr-2',
                                               method: :delete, data: { confirm: 'Are you sure?' }

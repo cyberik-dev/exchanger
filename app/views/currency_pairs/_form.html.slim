@@ -1,9 +1,12 @@
 = simple_form_for(@currency_pair) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-  .form-inputs
+  .form-group
     = f.input :amount
+  .form-group
     = f.input :target
+  .form-group
     = f.input :duration
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-outline-primary'
+br
