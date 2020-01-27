@@ -79,6 +79,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (11.1.1)
+    cancancan (3.0.2)
     chartkick (3.3.1)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
@@ -255,6 +256,7 @@ DEPENDENCIES
   bootstrap (~> 4.3.1)
   bullet
   byebug
+  cancancan
   chartkick
   devise
   dotenv-rails

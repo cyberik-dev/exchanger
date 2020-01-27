@@ -1,8 +1,9 @@
 class CurrencyPairsController < ApplicationController
   before_action :set_currency_pair, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
-    @currency_pairs = CurrencyPair.all.order(:id)
+    @currency_pairs = CurrencyPair.where(user_id: current_user).order(:id)
   end
 
   def show
@@ -45,6 +46,8 @@ class CurrencyPairsController < ApplicationController
     end
 
     def currency_pair_params
-      params.require(:currency_pair).permit(:amount, :target, :duration)
+      params.require(:currency_pair).permit(:amount, :target, :duration).merge(
+        user: current_user
+      )
     end
 end
