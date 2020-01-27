@@ -1,0 +1,30 @@
+.row.pb-2
+  .w-200.pl-3
+    h3
+      | Currency Pairs
+  .col-9
+    = link_to 'New Currency Pair', new_currency_pair_path, class: 'btn btn-outline-success btn-sm'
+table.table
+  thead
+    tr
+      th
+        | Amount
+      th
+        | Target
+      th
+        | Duration
+      th[colspan="3"]
+  tbody
+    - @currency_pairs.each do |currency_pair|
+      tr
+        td
+          = currency_pair.amount
+        td
+          = currency_pair.target.upcase
+        td
+          = currency_pair.duration
+        td
+          = link_to 'Show rates', currency_pair, class: 'btn btn-outline-primary btn-sm mr-2'
+          = link_to 'Edit', edit_currency_pair_path(currency_pair), class: 'btn btn-outline-dark btn-sm mr-2'
+          = link_to 'Destroy', currency_pair, class: 'btn btn-outline-danger btn-sm mr-2',
+                                              method: :delete, data: { confirm: 'Are you sure?' }
