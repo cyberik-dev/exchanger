@@ -35,20 +35,23 @@ table.table
     - @data[:for_table].each do |row|
       tr
         td= row[:year]
-        td
-          = row[:week_number]
-        td
-          = row[:date]
+        td= row[:week_number]
+        td= row[:date]
         td
           = row[:historical_rate]
+          - if row[:highest]
+            span.badge.badge-success.ml-1
+              | highest
+          - if row[:lowest]
+            span.badge.badge-danger.ml-1
+              | lowest
         td
           = humanized_money(row[:in_total])
           |  
-          = @currency_pair.target
-        td
-          = row[:profit_loss]
+          = @currency_pair.target.upcase
+        td= row[:profit_loss]
 
-= line_chart(@data[:for_chart], xtitle: 'Weeks', ytitle: 'Rate')      
+= line_chart(@data[:for_chart], xtitle: 'Weeks', ytitle: 'Rate', min: @data[:lowest_value])      
       
 = link_to 'Edit', edit_currency_pair_path(@currency_pair)
 |  | 
