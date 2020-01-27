@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A web app that allows users to analyze historical data for currency exchange rates.
 
-Things you may want to cover:
+## Want to try it?
 
-* Ruby version
+### Option 1 — Visit the hosted version
 
-* System dependencies
+* Visit https://webauthn.cedarcode.com
 
-* Configuration
+### Option 2 — Run it locally
 
-* Database creation
+#### Prerequisites
 
-* Database initialization
+* Ruby 2.7.0
+* yarn (or npm)
+* PostgreSQL
 
-* How to run the test suite
+#### Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ git clone git@github.com:cyberik-dev/exchanger.git
+$ cd exchanger/
+$ cp .env.sample .env
+$ cp congig/database.sample.yml database.yml
+$ bundle install
+$ yarn install (or npm install)
+$ bundle exec rake db:setup
+```
 
-* Deployment instructions
+#### Running
 
-* ...
+```
+$ foreman start -f Procfile.dev
+```
+
+Now you can visit http://localhost:5000 to play with the app.
