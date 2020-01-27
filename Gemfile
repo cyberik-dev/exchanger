@@ -7,6 +7,7 @@ ruby '2.7.0'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap',  '~> 4.3.1'
+gem 'chartkick'
 gem 'devise'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
