@@ -20,6 +20,14 @@ table.table
         | Week
       th
         | Date
+      th
+        | Rate
+      th
+        | Rate today
+      th
+        | In base currency
+      th
+        | Profit/loss in comparison with today's rate
   tbody
     - @currency_pair.fetch_weeks.each do |week|
       tr
@@ -29,7 +37,18 @@ table.table
           = week.cweek
         td
           = week
-  
+        td
+          - bank = Money::Bank::FixerIo.new
+          = rate = bank.get_rate(:EUR, @currency_pair.target, exchanged_at: week)
+        td
+          = rate_today = bank.get_rate(:EUR, @currency_pair.target)
+        td
+          = humanized_money(in_base = @currency_pair.amount * rate)
+          |  
+          = @currency_pair.target
+        td
+          = (@currency_pair.amount * rate_today) - in_base 
+
 = link_to 'Edit', edit_currency_pair_path(@currency_pair)
 |  | 
 = link_to 'Back', currency_pairs_path
