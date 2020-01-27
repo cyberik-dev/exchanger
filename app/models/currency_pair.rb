@@ -6,16 +6,4 @@ class CurrencyPair < ApplicationRecord
   
   validates :amount, :target, :duration, presence: true
   validates :amount, :duration, numericality: { greater_than: 0 }
-  
-  def fetch_weeks
-    weeks = []
-    date = Date.current
-    
-    duration.times do
-      date = date.prev_week
-      weeks << date
-    end
-    
-    weeks
-  end
 end
