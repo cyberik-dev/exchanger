@@ -33,5 +33,12 @@ module Exchanger
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.test_framework  :rspec
+      g.stylesheets     false
+      g.javascripts     false
+      g.helper          false
+    end
   end
 end
