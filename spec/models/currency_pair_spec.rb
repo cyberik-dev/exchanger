@@ -5,13 +5,13 @@ RSpec.describe CurrencyPair, type: :model do
                                                      jpy krw mxn myr nok nzd php pln ron rub sek sgd thb try usd zar]
     end
   end
-  
+
   context 'associations' do
     it { should belong_to(:user) }
   end
 
   context 'validations' do
-    [:amount, :duration].each do |field|
+    %i[amount duration].each do |field|
       it { should validate_numericality_of(field).is_greater_than(0) }
     end
   end
