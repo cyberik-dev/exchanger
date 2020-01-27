@@ -1,6 +1,3 @@
-- bank = Money::Bank::FixerIo.new
-- chart_data = {}
-
 p
   strong
     | Amount: 
@@ -17,8 +14,8 @@ p
 P 
   strong
     | Rate today: 
-  = rate_today = bank.get_rate(:EUR, @currency_pair.target)    
-  
+  = @data[:rate_today]
+
 table.table
   thead
     tr
@@ -31,29 +28,27 @@ table.table
       th
         | Rate
       th
-        | In base currency
+        | In total
       th
         | Profit/loss in comparison with today's rate
   tbody
-    - @currency_pair.fetch_weeks.each do |week|
+    - @data[:for_table].each do |row|
       tr
+        td= row[:year]
         td
-          = week.year
+          = row[:week_number]
         td
-          = week_number = week.cweek
+          = row[:date]
         td
-          = week
+          = row[:historical_rate]
         td
-          = rate = bank.get_rate(:EUR, @currency_pair.target, exchanged_at: week)
-          - chart_data[week.cweek] = rate
-        td
-          = humanized_money(in_base = @currency_pair.amount * rate)
+          = humanized_money(row[:in_total])
           |  
           = @currency_pair.target
         td
-          = (@currency_pair.amount * rate_today) - in_base 
+          = row[:profit_loss]
 
-= line_chart(chart_data, xtitle: 'Weeks', ytitle: 'Rate')      
+= line_chart(@data[:for_chart], xtitle: 'Weeks', ytitle: 'Rate')      
       
 = link_to 'Edit', edit_currency_pair_path(@currency_pair)
 |  | 

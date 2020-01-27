@@ -6,6 +6,7 @@ class CurrencyPairsController < ApplicationController
   end
 
   def show
+    @data = GetRatesService.new(@currency_pair).call
   end
 
   def new
